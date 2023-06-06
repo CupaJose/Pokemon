@@ -11,8 +11,8 @@ h1{
     overflow: auto;
 }
 article{
-    width: 25%;
-    height: 100%;
+    width: 27%;
+    height: 40%;
     background-color: #8a2be2;
     font-size: xx-large;
     display: flex;
@@ -23,7 +23,7 @@ article{
     position: relative;
     top: 17rem;
     width: 100%;
-    height: 3rem;
+    height: 6rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
