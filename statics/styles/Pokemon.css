@@ -7,13 +7,15 @@ h1{
     left:25%;
     width: 50%;
     height: 30%;
-    background-color: #7fffd449;
+    background-image: url("../Fondo_batalla.jpg");
+    background-size:contain;
+    color: #efe895;
     overflow: auto;
 }
 article{
     width: 27%;
     height: 40%;
-    background-color: #8a2be2;
+    background-color: #7dc9f7;
     font-size: xx-large;
     display: flex;
     justify-content: center;
@@ -27,7 +29,7 @@ article{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    background-color: #faebd7;
+    /* background-color: #faebd7; */
 }
 #Op-batalla{
     position: relative;
@@ -38,4 +40,8 @@ article{
 input{
     height: 40%;
     width: 100%;
+}
+body{
+    background-image: url("../Fondo_pagina.jpg");
+    /* background-size: cover; */
 }
