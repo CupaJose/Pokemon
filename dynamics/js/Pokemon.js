@@ -28,13 +28,8 @@ function batalla(p1,p2)
                     //         preg=1;
                     //     }
                     // }
-
-                
-                for(preg=0;preg<1;preg++)
-                {
                     mov=prompt("Movimiento que va a usar "+Entrenadores[p1].pokemones[0].nombre);
                     mov=mov.toUpperCase();
-                }
                 if(Entrenadores[p1].pokemones[0].nombre=="Pikachu")
                 {
                     prob= Math.floor(Math.random() * (3 - 1) + 1); //Función que me servira para las probabilidades porque me devuelve 1 o 2
@@ -49,6 +44,8 @@ function batalla(p1,p2)
                             Batalla.innerHTML += Entrenadores[p1].pokemones[0].nombre+" le ha bajado "+Dano+" de vida<br>";
                         if (prob==2)
                             Batalla.innerHTML += "Ataque fallido<br>";
+                        if(Entrenadores[p2].pokemones[0].vida<0)
+                            Entrenadores[p2].pokemones[0].vida=0;
                         Batalla.innerHTML += "A "+Entrenadores[p2].pokemones[0].nombre+" le queda "+Entrenadores[p2].pokemones[0].vida+" de vida<br><br>";
                     }
                     else if(mov=="AMAGO"){
@@ -59,6 +56,8 @@ function batalla(p1,p2)
                             Dano=Entrenadores[p1].pokemones[0].crit - Entrenadores[p2].pokemones[0].defensa;
                         Entrenadores[p2].pokemones[0].vida=Entrenadores[p2].pokemones[0].vida-Dano;
                         Batalla.innerHTML += Entrenadores[p1].pokemones[0].nombre+" le ha bajado "+Dano+" de vida<br>";
+                        if(Entrenadores[p2].pokemones[0].vida<0)
+                            Entrenadores[p2].pokemones[0].vida=0;
                         Batalla.innerHTML += "A "+Entrenadores[p2].pokemones[0].nombre+" le queda "+Entrenadores[p2].pokemones[0].vida+" de vida<br><br>";
                     }
                     else if(mov=="ATAQUE RAPIDO"){
@@ -69,6 +68,8 @@ function batalla(p1,p2)
                             Dano=Entrenadores[p1].pokemones[0].crit - Entrenadores[p2].pokemones[0].defensa;
                         Entrenadores[p2].pokemones[0].vida=Entrenadores[p2].pokemones[0].vida-Dano;
                         Batalla.innerHTML += Entrenadores[p1].pokemones[0].nombre+" le ha bajado "+Dano+" de vida<br>";
+                        if(Entrenadores[p2].pokemones[0].vida<0)
+                            Entrenadores[p2].pokemones[0].vida=0;
                         Batalla.innerHTML += "A "+Entrenadores[p2].pokemones[0].nombre+" le queda "+Entrenadores[p2].pokemones[0].vida+" de vida<br><br>";
                     }
                     else if(mov=="IMPACTRUENO"){
@@ -82,6 +83,8 @@ function batalla(p1,p2)
                             Batalla.innerHTML += Entrenadores[p1].pokemones[0].nombre+" le ha bajado "+Dano+" de vida<br>";
                         if (prob==2)
                             Batalla.innerHTML += "Ataque fallido<br>";
+                        if(Entrenadores[p2].pokemones[0].vida<0)
+                            Entrenadores[p2].pokemones[0].vida=0;
                         Batalla.innerHTML += "A "+Entrenadores[p2].pokemones[0].nombre+" le queda "+Entrenadores[p2].pokemones[0].vida+" de vida<br><br>";
                     }
                     else{
@@ -92,13 +95,15 @@ function batalla(p1,p2)
                 {
                     prob= Math.floor(Math.random() * (3 - 1) + 1); //Función que me servira para las probabilidades porque me devuelve 1 o 2
                     if(mov=="PLACAJE"){
+                        Batalla.innerHTML += Entrenadores[p1].pokemones[0].nombre+" ha usado "+Entrenadores[p1].pokemones[0].mov1.nombre+"<br>";
                         if (prob==1)
                             Dano=Entrenadores[p1].pokemones[0].ataque - Entrenadores[p2].pokemones[0].defensa;
                         if (prob==2)
-                            Dano=Entrenadores[p1].pokemones[0].crit - Entrenadores[p2].pokemones[0].defensa.pokemones[0].mov1.nombre+"<br>";
-                        Dano=Entrenadores[p1].pokemones[0].ataque - Entrenadores[p2].pokemones[0].defensa;
+                            Dano=Entrenadores[p1].pokemones[0].crit - Entrenadores[p2].pokemones[0].defensa;
                         Entrenadores[p2].pokemones[0].vida=Entrenadores[p2].pokemones[0].vida-Dano;
                         Batalla.innerHTML += Entrenadores[p1].pokemones[0].nombre+" le ha bajado "+Dano+" de vida<br>";
+                        if(Entrenadores[p2].pokemones[0].vida<0)
+                            Entrenadores[p2].pokemones[0].vida=0;
                         Batalla.innerHTML += "A "+Entrenadores[p2].pokemones[0].nombre+" le queda "+Entrenadores[p2].pokemones[0].vida+" de vida<br><br>";
                     }
                     else if(mov=="GRUÑIDO"||mov=="GRUNIDO"){
@@ -122,6 +127,8 @@ function batalla(p1,p2)
                             Entrenadores[p2].pokemones[0].vida=Entrenadores[p2].pokemones[0].vida-Dano;
                             Entrenadores[p1].pokemones[0].vida+=9;
                             Batalla.innerHTML += Entrenadores[p1].pokemones[0].nombre+" le ha bajado "+Dano+" de vida<br>";
+                            if(Entrenadores[p2].pokemones[0].vida<0)
+                                Entrenadores[p2].pokemones[0].vida=0;
                             Batalla.innerHTML += "A "+Entrenadores[p2].pokemones[0].nombre+" le queda "+Entrenadores[p2].pokemones[0].vida+" de vida<br>";
                             Batalla.innerHTML += Entrenadores[p1].pokemones[0].nombre+" ha recuperado "+Dano+" de vida<br>";
                             Batalla.innerHTML += Entrenadores[p1].pokemones[0].nombre+" tiene "+Entrenadores[p1].pokemones[0].vida+" de vida<br><br>";
@@ -137,6 +144,8 @@ function batalla(p1,p2)
                             Dano=Entrenadores[p1].pokemones[0].crit - Entrenadores[p2].pokemones[0].defensa;
                         Entrenadores[p2].pokemones[0].vida=Entrenadores[p2].pokemones[0].vida-Dano;
                         Batalla.innerHTML += Entrenadores[p1].pokemones[0].nombre+" le ha bajado "+Dano+" de vida<br>";
+                        if(Entrenadores[p2].pokemones[0].vida<0)
+                            Entrenadores[p2].pokemones[0].vida=0;
                         Batalla.innerHTML += "A "+Entrenadores[p2].pokemones[0].nombre+" le queda "+Entrenadores[p2].pokemones[0].vida+" de vida<br><br>";
                     }
                     else{
@@ -154,6 +163,8 @@ function batalla(p1,p2)
                             Dano=Entrenadores[p1].pokemones[0].crit - Entrenadores[p2].pokemones[0].defensa;
                         Entrenadores[p2].pokemones[0].vida=Entrenadores[p2].pokemones[0].vida-Dano;
                         Batalla.innerHTML += Entrenadores[p1].pokemones[0].nombre+" le ha bajado "+Dano+" de vida<br>";
+                        if(Entrenadores[p2].pokemones[0].vida<0)
+                            Entrenadores[p2].pokemones[0].vida=0;
                         Batalla.innerHTML += "A "+Entrenadores[p2].pokemones[0].nombre+" le queda "+Entrenadores[p2].pokemones[0].vida+" de vida<br><br>";
                     }
                     else if(mov=="MORDISCO"){
@@ -164,6 +175,8 @@ function batalla(p1,p2)
                             Dano=Entrenadores[p1].pokemones[0].crit - Entrenadores[p2].pokemones[0].defensa;
                         Entrenadores[p2].pokemones[0].vida=Entrenadores[p2].pokemones[0].vida-Dano;
                         Batalla.innerHTML += Entrenadores[p1].pokemones[0].nombre+" le ha bajado "+Dano+" de vida<br>";
+                        if(Entrenadores[p2].pokemones[0].vida<0)
+                            Entrenadores[p2].pokemones[0].vida=0;
                         Batalla.innerHTML += "A "+Entrenadores[p2].pokemones[0].nombre+" le queda "+Entrenadores[p2].pokemones[0].vida+" de vida<br>";
                     }
                     else if(mov=="PISTOLA AGUA"||mov=="PISTOLA DE AGUA"){
@@ -177,6 +190,8 @@ function batalla(p1,p2)
                             Batalla.innerHTML += Entrenadores[p1].pokemones[0].nombre+" le ha bajado "+Dano+" de vida<br>";
                         if (prob==2)
                             Batalla.innerHTML += "Ataque fallido<br>";
+                        if(Entrenadores[p2].pokemones[0].vida<0)
+                            Entrenadores[p2].pokemones[0].vida=0;
                         Batalla.innerHTML += "A "+Entrenadores[p2].pokemones[0].nombre+" le queda "+Entrenadores[p2].pokemones[0].vida+" de vida<br><br>";
                     }
                     else if(mov=="HIDROPULSO"){
@@ -190,6 +205,8 @@ function batalla(p1,p2)
                             Batalla.innerHTML += Entrenadores[p1].pokemones[0].nombre+" le ha bajado "+Dano+" de vida<br>";
                         if (prob==2)
                             Batalla.innerHTML += "Ataque fallido<br>";
+                        if(Entrenadores[p2].pokemones[0].vida<0)
+                            Entrenadores[p2].pokemones[0].vida=0;
                         Batalla.innerHTML += "A "+Entrenadores[p2].pokemones[0].nombre+" le queda "+Entrenadores[p2].pokemones[0].vida+" de vida<br><br>";
                     }
                     else{
@@ -207,6 +224,8 @@ function batalla(p1,p2)
                             Dano=Entrenadores[p1].pokemones[0].crit - Entrenadores[p2].pokemones[0].defensa;
                         Entrenadores[p2].pokemones[0].vida=Entrenadores[p2].pokemones[0].vida-Dano;
                         Batalla.innerHTML += Entrenadores[p1].pokemones[0].nombre+" le ha bajado "+Dano+" de vida<br>";
+                        if(Entrenadores[p2].pokemones[0].vida<0)
+                            Entrenadores[p2].pokemones[0].vida=0;
                         Batalla.innerHTML += "A "+Entrenadores[p2].pokemones[0].nombre+" le queda "+Entrenadores[p2].pokemones[0].vida+" de vida<br><br>";
                     }
                     else if(mov=="FURIA DRAGÓN"||mov=="FURIA DRAGON"){
@@ -220,6 +239,8 @@ function batalla(p1,p2)
                             Batalla.innerHTML += Entrenadores[p1].pokemones[0].nombre+" le ha bajado "+Dano+" de vida<br>";
                         if (prob==2)
                             Batalla.innerHTML += "Ataque fallido<br>";
+                        if(Entrenadores[p2].pokemones[0].vida<0)
+                            Entrenadores[p2].pokemones[0].vida=0;
                         Batalla.innerHTML += "A "+Entrenadores[p2].pokemones[0].nombre+" le queda "+Entrenadores[p2].pokemones[0].vida+" de vida<br><br>";
                     }
                     else if(mov=="CUCHILLADA"){
@@ -230,6 +251,8 @@ function batalla(p1,p2)
                             Dano=Entrenadores[p1].pokemones[0].crit - Entrenadores[p2].pokemones[0].defensa;
                         Entrenadores[p2].pokemones[0].vida=Entrenadores[p2].pokemones[0].vida-Dano;
                         Batalla.innerHTML += Entrenadores[p1].pokemones[0].nombre+" le ha bajado "+Dano+" de vida<br>";
+                        if(Entrenadores[p2].pokemones[0].vida<0)
+                            Entrenadores[p2].pokemones[0].vida=0;
                         Batalla.innerHTML += "A "+Entrenadores[p2].pokemones[0].nombre+" le queda "+Entrenadores[p2].pokemones[0].vida+" de vida<br><br>";
                     }
                     else if(mov=="LANZALLAMAS"){
@@ -243,6 +266,8 @@ function batalla(p1,p2)
                             Batalla.innerHTML += Entrenadores[p1].pokemones[0].nombre+" le ha bajado "+Dano+" de vida<br>";
                         if (prob==2)
                             Batalla.innerHTML += "Ataque fallido<br>";
+                        if(Entrenadores[p2].pokemones[0].vida<0)
+                            Entrenadores[p2].pokemones[0].vida=0;
                         Batalla.innerHTML += "A "+Entrenadores[p2].pokemones[0].nombre+" le queda "+Entrenadores[p2].pokemones[0].vida+" de vida<br><br>";
                     }
                     else{
@@ -260,6 +285,8 @@ function batalla(p1,p2)
                             Dano=Entrenadores[p1].pokemones[0].crit - Entrenadores[p2].pokemones[0].defensa;
                         Entrenadores[p2].pokemones[0].vida=Entrenadores[p2].pokemones[0].vida-Dano;
                         Batalla.innerHTML += Entrenadores[p1].pokemones[0].nombre+" le ha bajado "+Dano+" de vida<br>";
+                        if(Entrenadores[p2].pokemones[0].vida<0)
+                            Entrenadores[p2].pokemones[0].vida=0;
                         Batalla.innerHTML += "A "+Entrenadores[p2].pokemones[0].nombre+" le queda "+Entrenadores[p2].pokemones[0].vida+" de vida<br><br>";
                     }
                     else if(mov=="PLACAJE"){
@@ -270,6 +297,8 @@ function batalla(p1,p2)
                             Dano=Entrenadores[p1].pokemones[0].crit - Entrenadores[p2].pokemones[0].defensa;
                         Entrenadores[p2].pokemones[0].vida=Entrenadores[p2].pokemones[0].vida-Dano;
                         Batalla.innerHTML += Entrenadores[p1].pokemones[0].nombre+" le ha bajado "+Dano+" de vida<br>";
+                        if(Entrenadores[p2].pokemones[0].vida<0)
+                            Entrenadores[p2].pokemones[0].vida=0;
                         Batalla.innerHTML += "A "+Entrenadores[p2].pokemones[0].nombre+" le queda "+Entrenadores[p2].pokemones[0].vida+" de vida<br><br>";
                     }
                     else if(mov=="VENDAVAL"){
@@ -283,6 +312,8 @@ function batalla(p1,p2)
                             Batalla.innerHTML += Entrenadores[p1].pokemones[0].nombre+" le ha bajado "+Dano+" de vida<br>";
                         if (prob==2)
                             Batalla.innerHTML += "Ataque fallido<br>";
+                        if(Entrenadores[p2].pokemones[0].vida<0)
+                            Entrenadores[p2].pokemones[0].vida=0;
                         Batalla.innerHTML += "A "+Entrenadores[p2].pokemones[0].nombre+" le queda "+Entrenadores[p2].pokemones[0].vida+" de vida<br><br>";
                     }
                     else if(mov=="TORNADO"){
@@ -296,6 +327,8 @@ function batalla(p1,p2)
                             Batalla.innerHTML += Entrenadores[p1].pokemones[0].nombre+" le ha bajado "+Dano+" de vida<br>";
                         if (prob==2)
                             Batalla.innerHTML += "Ataque fallido<br>";
+                        if(Entrenadores[p2].pokemones[0].vida<0)
+                            Entrenadores[p2].pokemones[0].vida=0;
                         Batalla.innerHTML += "A "+Entrenadores[p2].pokemones[0].nombre+" le queda "+Entrenadores[p2].pokemones[0].vida+" de vida<br><br>";
                     }
                     else{
@@ -316,6 +349,8 @@ function batalla(p1,p2)
                             Batalla.innerHTML += Entrenadores[p1].pokemones[0].nombre+" le ha bajado "+Dano+" de vida<br>";
                         if (prob==2)
                             Batalla.innerHTML += "Ataque fallido<br>";
+                        if(Entrenadores[p2].pokemones[0].vida<0)
+                            Entrenadores[p2].pokemones[0].vida=0;
                         Batalla.innerHTML += "A "+Entrenadores[p2].pokemones[0].nombre+" le queda "+Entrenadores[p2].pokemones[0].vida+" de vida<br><br>";
                     }
                     else if(mov=="TRITURAR"){
@@ -329,6 +364,8 @@ function batalla(p1,p2)
                             Batalla.innerHTML += Entrenadores[p1].pokemones[0].nombre+" le ha bajado "+Dano+" de vida<br>";
                         if (prob==2)
                             Batalla.innerHTML += "Ataque fallido<br>";
+                        if(Entrenadores[p2].pokemones[0].vida<0)
+                            Entrenadores[p2].pokemones[0].vida=0;
                         Batalla.innerHTML += "A "+Entrenadores[p2].pokemones[0].nombre+" le queda "+Entrenadores[p2].pokemones[0].vida+" de vida<br><br>";
                     }
                     else if(mov=="BUENA BAZA"){
@@ -339,6 +376,8 @@ function batalla(p1,p2)
                             Dano=Entrenadores[p1].pokemones[0].crit - Entrenadores[p2].pokemones[0].defensa;
                         Entrenadores[p2].pokemones[0].vida=Entrenadores[p2].pokemones[0].vida-Dano;
                         Batalla.innerHTML += Entrenadores[p1].pokemones[0].nombre+" le ha bajado "+Dano+" de vida<br>";
+                        if(Entrenadores[p2].pokemones[0].vida<0)
+                            Entrenadores[p2].pokemones[0].vida=0;
                         Batalla.innerHTML += "A "+Entrenadores[p2].pokemones[0].nombre+" le queda "+Entrenadores[p2].pokemones[0].vida+" de vida<br><br>";
                     }
                     else if(mov=="HIPERCOLMILLO"){
@@ -349,6 +388,8 @@ function batalla(p1,p2)
                             Dano=Entrenadores[p1].pokemones[0].crit - Entrenadores[p2].pokemones[0].defensa;
                         Entrenadores[p2].pokemones[0].vida=Entrenadores[p2].pokemones[0].vida-Dano;
                         Batalla.innerHTML += Entrenadores[p1].pokemones[0].nombre+" le ha bajado "+Dano+" de vida<br>";
+                        if(Entrenadores[p2].pokemones[0].vida<0)
+                            Entrenadores[p2].pokemones[0].vida=0;
                         Batalla.innerHTML += "A "+Entrenadores[p2].pokemones[0].nombre+" le queda "+Entrenadores[p2].pokemones[0].vida+" de vida<br><br>";
                     }
                     else{
@@ -469,6 +510,7 @@ const Batalla=document.getElementById("Batalla");
 const empezar=document.getElementById("Comenzar");
 const elegir_entrenadores=document.getElementById("Elegir_entrenador");
 const descripcion=document.getElementById("Descripcion");
+const siguienteMov=document.querySelector("#siguienteMov");
 
 var Peleador1; //variable que recibe la respuesta del primer entrenador que va a combatir
 var Peleador2; //variable que recibe la respuesta del segundo entrenador que va a combatir
@@ -484,135 +526,128 @@ function Elegir_entrenador(){
 }
 elegir_entrenadores.addEventListener("click", Elegir_entrenador);
 
-empezar.addEventListener("click", ()=>{
+empezar.addEventListener("click", (comenzar)=>{
     elegir_entrenadores.removeEventListener("click", Elegir_entrenador);
     console.log("Batalla iniciada");
-    if((Peleador1=="CUPA" && Peleador2=="FERSA")||(Peleador1=="FERSA" && Peleador2=="CUPA"))
+    Batalla.innerHTML + "A";
+    siguienteMov.addEventListener("click", (combate)=>
     {
-        if(Entrenadores[0].pokemones[0].vel>Entrenadores[1].pokemones[0].vel){
-            while(Entrenadores[0].pokemones[0].vida>0||Entrenadores[1].pokemones[0].vida>0)
-            {
-                batalla(0,1);
-                if(Entrenadores[0].pokemones[0].vida>0||Entrenadores[1].pokemones[0].vida>0)
+        if((Peleador1=="CUPA" && Peleador2=="FERSA")||(Peleador1=="FERSA" && Peleador2=="CUPA"))
+        {
+            if(Entrenadores[0].pokemones[0].vel>Entrenadores[1].pokemones[0].vel){
+                if(Entrenadores[0].pokemones[0].vida>-1||Entrenadores[1].pokemones[0].vida>-1)
+                    {
+                        batalla(0,1);
+                    }
+                else
+                    console.log("Algun pokemon ya no tiene vida");
+                if(Entrenadores[0].pokemones[0].vida>-1||Entrenadores[1].pokemones[0].vida>-1)
                     batalla(1,0);
+                else
+                    console.log("Algun pokemon ya no tiene vida");
+            }
+            else
+            {
+                    if(Entrenadores[0].pokemones[0].vida>-1||Entrenadores[1].pokemones[0].vida>-1)
+                        batalla(1,0);
+                    else
+                        console.log("Algun pokemon ya no tiene vida");
+                    if(Entrenadores[0].pokemones[0].vida>-1||Entrenadores[1].pokemones[0].vida>-1)
+                            batalla(0,1);
+                    else
+                        console.log("Algun pokemon ya no tiene vida");
+            }
+            if(Entrenadores[0].pokemones[0].vida==0)
+            {
+                Entrenadores[0].pokemones.reverse();
+                Entrenadores[0].pokemones.pop();
+                Entrenadores[0].pokemones.reverse();
+                console.log(Entrenadores[0].pokemones);
+            }
+            if(Entrenadores[1].pokemones[0].vida==0)
+            {
+                Entrenadores[1].pokemones.reverse();
+                Entrenadores[1].pokemones.pop();
+                Entrenadores[1].pokemones.reverse();
+                console.log(Entrenadores[1].pokemones);
             }
         }
-        else{
-            while(Entrenadores[0].pokemones[0].vida>0||Entrenadores[1].pokemones[0].vida>0)
-            {
-                batalla(1,0);
-                if(Entrenadores[0].pokemones[0].vida>0||Entrenadores[1].pokemones[0].vida>0)
-                    batalla(0,1);
-            }
-
-        }
-        if(Entrenadores[0].pokemones[0].vida<0)
-        {
-            console.log(Entrenadores[0].pokemones);
-            Entrenadores[0].pokemones.reverse();
-            console.log(Entrenadores[0].pokemones);
-            Entrenadores[0].pokemones.pop();
-            console.log(Entrenadores[0].pokemones);
-            Entrenadores[0].pokemones.reverse();
-            console.log(Entrenadores[0].pokemones);
-        }
-        if(Entrenadores[1].pokemones[0].vida<0)
-        {
-            console.log(Entrenadores[1].pokemones);
-            Entrenadores[1].pokemones.reverse();
-            console.log(Entrenadores[1].pokemones);
-            Entrenadores[1].pokemones.pop();
-            console.log(Entrenadores[1].pokemones);
-            Entrenadores[1].pokemones.reverse();
-            console.log(Entrenadores[1].pokemones);
-        }
-    }
-    else if((Peleador1=="CUPA" && Peleador2=="GABO")||(Peleador1=="GABO" && Peleador2=="CUPA")){
-        if(Entrenadores[0].pokemones[0].vel>Entrenadores[2].pokemones[0].vel){
-            while(Entrenadores[0].pokemones[0].vida>0||Entrenadores[2].pokemones[0].vida>0)
-            {
-                batalla(0,2);
-                alert("HOLA");
-                if(Entrenadores[0].pokemones[0].vida>0||Entrenadores[1].pokemones[0].vida>0)
-                    batalla(2,0);
-                    alert("Hola");
-            }
-        }
-        else{
-            while(Entrenadores[0].pokemones[0].vida>0||Entrenadores[1].pokemones[0].vida>0)
-            {
-                batalla(2,0);
-                alert("Hola");
-                if(Entrenadores[0].pokemones[0].vida>0||Entrenadores[1].pokemones[0].vida>0)
+        else if((Peleador1=="CUPA" && Peleador2=="GABO")||(Peleador1=="GABO" && Peleador2=="CUPA")){
+            if(Entrenadores[0].pokemones[0].vel>Entrenadores[2].pokemones[0].vel){
+                if(Entrenadores[0].pokemones[0].vida>-1||Entrenadores[2].pokemones[0].vida>-1)
                     batalla(0,2);
-                    alert ("HOLA");
+                else
+                    console.log("Algun pokemon ya no tiene vida");
+                if(Entrenadores[0].pokemones[0].vida>-1||Entrenadores[1].pokemones[0].vida>-1)
+                    batalla(2,0);
+                else
+                    console.log("Algun pokemon ya no tiene vida");
             }
+            else{
+                if(Entrenadores[0].pokemones[0].vida>-1||Entrenadores[1].pokemones[0].vida>-1)
+                    batalla(2,0);
+                else
+                    console.log("Algun pokemon ya no tiene vida");
+                if(Entrenadores[0].pokemones[0].vida>-1||Entrenadores[1].pokemones[0].vida>-1)
+                    batalla(0,2);
+                else
+                    console.log("Algun pokemon ya no tiene vida");
 
-        }
-        if(Entrenadores[0].pokemones[0].vida<0)
-        {
-            console.log(Entrenadores[0].pokemones);
-            Entrenadores[0].pokemones.reverse();
-            console.log(Entrenadores[0].pokemones);
-            Entrenadores[0].pokemones.pop();
-            console.log(Entrenadores[0].pokemones);
-            Entrenadores[0].pokemones.reverse();
-            console.log(Entrenadores[0].pokemones);
-        }
-        if(Entrenadores[2].pokemones[0].vida<0)
-        {
-            console.log(Entrenadores[2].pokemones);
-            Entrenadores[2].pokemones.reverse();
-            console.log(Entrenadores[2].pokemones);
-            Entrenadores[2].pokemones.pop();
-            console.log(Entrenadores[2].pokemones);
-            Entrenadores[2].pokemones.reverse();
-            console.log(Entrenadores[2].pokemones);
-        }
-    }
-    else if((Peleador1=="FERSA" && Peleador2=="GABO")||(Peleador1=="GABO" && Peleador2=="FERSA")){
-        if(Entrenadores[1].pokemones[0].vel>Entrenadores[2].pokemones[0].vel){
-            while(Entrenadores[1].pokemones[0].vida>0||Entrenadores[2].pokemones[0].vida>0)
+            }
+            if(Entrenadores[0].pokemones[0].vida==0)
             {
-                batalla(1,2);
-                if(Entrenadores[0].pokemones[0].vida>0||Entrenadores[1].pokemones[0].vida>0)
+                Entrenadores[0].pokemones.reverse();
+                Entrenadores[0].pokemones.pop();
+                Entrenadores[0].pokemones.reverse();
+            }
+            if(Entrenadores[2].pokemones[0].vida==0)
+            {
+                Entrenadores[2].pokemones.reverse();
+                Entrenadores[2].pokemones.pop();
+                Entrenadores[2].pokemones.reverse();
+            }
+        }
+        else if((Peleador1=="FERSA" && Peleador2=="GABO")||(Peleador1=="GABO" && Peleador2=="FERSA")){
+            if(Entrenadores[1].pokemones[0].vel>Entrenadores[2].pokemones[0].vel){
+                if(Entrenadores[1].pokemones[0].vida>-1||Entrenadores[2].pokemones[0].vida>-1)
+                    batalla(1,2);
+                else
+                    console.log("Algun pokemon ya no tiene vida");
+                if(Entrenadores[0].pokemones[0].vida>-1||Entrenadores[1].pokemones[0].vida>-1)
                     batalla(2,1);
+                else
+                    console.log("Algun pokemon ya no tiene vida");
+            }
+            else{
+                if(Entrenadores[0].pokemones[0].vida>-1||Entrenadores[1].pokemones[0].vida>-1)
+                    batalla(2,1);
+                else
+                    console.log("Algun pokemon ya no tiene vida");
+                if(Entrenadores[0].pokemones[0].vida>-1||Entrenadores[1].pokemones[0].vida>-1)
+                    batalla(1,2);
+                else
+                    console.log("Algun pokemon ya no tiene vida");
+
+            }
+            if(Entrenadores[1].pokemones[0].vida==0)
+            {
+                Entrenadores[1].pokemones.reverse();
+                Entrenadores[1].pokemones.pop();
+                Entrenadores[1].pokemones.reverse();
+            }
+            if(Entrenadores[2].pokemones[0].vida==0)
+            {
+                Entrenadores[2].pokemones.reverse();
+                Entrenadores[2].pokemones.pop();
+                Entrenadores[2].pokemones.reverse();
             }
         }
         else{
-            while(Entrenadores[0].pokemones[0].vida>0||Entrenadores[1].pokemones[0].vida>0)
-            {
-                batalla(2,1);
-                if(Entrenadores[0].pokemones[0].vida>0||Entrenadores[1].pokemones[0].vida>0)
-                    batalla(1,2);
+            alert("No eligió entrenadores");
             }
-
-        }
-        if(Entrenadores[1].pokemones[0].vida<0)
-        {
-            console.log(Entrenadores[1].pokemones);
-            Entrenadores[1].pokemones.reverse();
-            console.log(Entrenadores[1].pokemones);
-            Entrenadores[1].pokemones.pop();
-            console.log(Entrenadores[1].pokemones);
-            Entrenadores[1].pokemones.reverse();
-            console.log(Entrenadores[1].pokemones);
-        }
-        if(Entrenadores[2].pokemones[0].vida<0)
-        {
-            console.log(Entrenadores[2].pokemones);
-            Entrenadores[2].pokemones.reverse();
-            console.log(Entrenadores[2].pokemones);
-            Entrenadores[2].pokemones.pop();
-            console.log(Entrenadores[2].pokemones);
-            Entrenadores[2].pokemones.reverse();
-            console.log(Entrenadores[2].pokemones);
-        }
-    }
-    else{
-        alert("No eligió entrenadores");
-    }
+    });
     elegir_entrenadores.addEventListener("click", Elegir_entrenador);
+
 });
 
 let p=[]; //arreglo en el que en cada localidad guardo el numero de pokemones de cada entrenador
@@ -624,8 +659,7 @@ let x; //variable que me permitira mostrar la informacion de los entrenadores en
 Entrenador_[0]=JSON.stringify(Entrenadores[0]);
 Entrenador_[1]=JSON.stringify(Entrenadores[1]);
 Entrenador_[2]=JSON.stringify(Entrenadores[2]);
-descripcion.addEventListener("click", (evento)=>{
-        // for(i=0;i<=3;i++)
+// for(i=0;i<=3;i++)
         // {
         //     // Batalla.innerHTML += Entrenadores[i].pokemones[p]+"<br>";
         //     console.log(Entrenador_[i]);
@@ -642,6 +676,7 @@ descripcion.addEventListener("click", (evento)=>{
             i++;
             np=0;
         });
+descripcion.addEventListener("click", (evento)=>{
         console.log("Número de entrenadores "+i);
         console.log("Número de pokemones del entrenador 1 "+p[0]);
         console.log("Número de pokemones del entrenador 2 "+p[1]);
@@ -689,6 +724,7 @@ descripcion.addEventListener("click", (evento)=>{
                 Batalla.innerHTML += "Probabilidad "+Entrenadores[x].pokemones[poke].mov4.probabilidad+"<br>";
                 Batalla.innerHTML += "Tipo "+Entrenadores[x].pokemones[poke].mov4.tipo+"<br>";
                 Batalla.innerHTML += "Físico o especial: "+Entrenadores[x].pokemones[poke].mov4.fe+"<br>";
+                Batalla.innerHTML += "<br><br>";
             }
             Batalla.innerHTML +="<br><br>";
             poke=0;
